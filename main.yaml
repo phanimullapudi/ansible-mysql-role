@@ -7,5 +7,5 @@
     - name: Restart Cron Daemon
       ansible.builtin.service:
         name: crond
-        state: restarted
+        state: restart
         when: ansible_os_family == "RedHat"
