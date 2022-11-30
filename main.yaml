@@ -8,4 +8,4 @@
       ansible.builtin.service:
         name: crond
         state: restarted
-        when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6")
+        when: ansible_os_family == "RedHat"
