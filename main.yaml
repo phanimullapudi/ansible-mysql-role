@@ -1,0 +1,7 @@
+---
+- name: Restart cron service
+  hosts: centos
+  ansible.builtin.service:
+    name: crond
+    state: restarted
+
