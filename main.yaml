@@ -1,7 +1,11 @@
 ---
-- name: Restart cron service
-  hosts: centos
-  ansible.builtin.service:
-    name: crond
-    state: restarted
+- name: Ansible Service Management module
+  hosts: all
+  remote_user: ansible
+  become: true
+  tasks:
+    - name: Restart Cron Daemon
+      ansible.builtin.service:
+        name: crond
+        state: restarted
 
