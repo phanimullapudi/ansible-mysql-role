@@ -4,12 +4,13 @@
   remote_user: ansible
   become: true
   tasks:
-    - name: Restart Cron Daemon
+    - name: Restart Cron Daemon on Centos
       ansible.builtin.service:
         name: crond
         state: restarted
       when:
         - ansible_facts['distribution'] == "CentOS"
+    - name: Restart Cron Dameon on Ubuntu
       ansible.builtin.service:
         name: cron
         state: restarted
