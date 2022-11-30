@@ -10,3 +10,8 @@
         state: restarted
       when:
         - ansible_facts['distribution'] == "CentOS"
+      ansible.builtin.service:
+        name: cron
+        state: restarted
+      when:
+        - ansible_facts['distribution'] == "Ubuntu"
