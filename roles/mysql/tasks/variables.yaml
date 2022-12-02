@@ -1,0 +1,28 @@
+---
+# Variable configuration.
+- name: Include OS-specific variables.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - files:
+        - "vars/Redhat-7.yaml"
+      skip: true
+
+- name: Define mysql_packages.
+  set_fact:
+    mysql_packages: "{{ __mysql_packages | list }}"
+  when: mysql_packages is not defined
+
+- name: Define mysql_daemon.
+  set_fact:
+    mysql_daemon: "{{ __mysql_daemon }}"
+  when: mysql_daemon is not defined
+
+- name: Define mysql_slow_query_log_file.
+  set_fact:
+    mysql_slow_query_log_file: "{{ __mysql_slow_query_log_file }}"
+  when: mysql_slow_query_log_file is not defined
+
+- name: Define mysql_log_error.
+  set_fact:
+    mysql_log_error: "{{ __mysql_log_error }}"
+  when: mysql_log_error is not defined

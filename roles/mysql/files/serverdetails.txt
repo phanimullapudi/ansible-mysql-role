@@ -1,0 +1,1 @@
+This is a test file and hostname of the servers is {{ ansible_bios_version }}

@@ -1,0 +1,6 @@
+---
+# variables configuration
+- include_tasks: variables.yaml
+
+# Setup/Install Tasks
+- include_tasks: setup-Redhat.yaml

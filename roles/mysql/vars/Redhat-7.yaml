@@ -1,0 +1,9 @@
+---
+__mysql_daemon: mysql
+__mysql_packages:
+  - mysql-community-server
+  - mysql-community-client
+  - mysql-community-libs
+__mysql_slow_query_log_file: /var/log/mysql-slow.log
+__mysql_log_error: /var/log/mysqld/mysqlerr.log
+__mysql_config_file: /etc/my.cnf
