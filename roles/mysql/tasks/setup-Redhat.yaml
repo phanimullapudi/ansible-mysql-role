@@ -2,10 +2,12 @@
 - name: Install MySQL Yum Report
   ansible.builtin.yum:
     name: https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm
+    become: true
     state: present
 - name: Ensure MySQL packages are installed
   yum:
     name: "{{ mysql_packages }}"
+    become: true
     state: present
     enablerepo: "{{ mysql_enablerepo | default(omit, true) }}"
   register: rh_mysql_install_packages
