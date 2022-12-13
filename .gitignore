@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Inventory File and CFG file
+inventory.yaml
+ansible.cfg

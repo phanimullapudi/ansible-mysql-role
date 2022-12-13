@@ -1,7 +1,7 @@
 ---
-- name: Install MySQL Yum Report
-  ansible.builtin.yum:
-    name: https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm
+- name: Install MySQL Yum Repo
+  yum:
+    name: https://repo.mysql.com/mysql80-community-release-el7-3.noarch.rpm
     state: present
 - name: Ensure MySQL packages are installed
   yum:
@@ -10,7 +10,7 @@
     enablerepo: "{{ mysql_enablerepo | default(omit, true) }}"
   register: rh_mysql_install_packages
 - name: Copy local file to Temp
-  ansible.builtin.copy:
+  copy:
     src: ./roles/mysql/files/serverdetails.txt
     dest: /tmp/serverdetails.txt
 
