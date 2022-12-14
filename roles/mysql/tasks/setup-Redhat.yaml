@@ -22,5 +22,5 @@
   file:
     path: /tmp/serverdetails.txt
     mode: 0777
-  when: stat_file_serverdetails.exits
+  when: stat_file_serverdetails.exists
 
