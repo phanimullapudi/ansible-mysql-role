@@ -16,11 +16,11 @@
 - name: Check if file exists
   stat:
     path: /tmp/serverdetails.txt
-  register: stat_file_serverdetails
+  register: stat-file-serverdetails
 - name: Change the permissions of the file
   become: true
   file:
     path: /tmp/serverdetails.txt
     mode: 0777
-  when: stat_file_serverdetails.stat.exists
+  when: stat-file-serverdetails.stat.exists
 
