@@ -9,18 +9,8 @@
     state: present
     enablerepo: "{{ mysql_enablerepo | default(omit, true) }}"
   register: rh_mysql_install_packages
-- name: Copy local file to Temp
-  copy:
-    src: ./roles/mysql/files/serverdetails.txt
+- name: Push the template file
+  template:
+    src: serverdetails.j2
     dest: /tmp/serverdetails.txt
-- name: Check if file exists
-  stat:
-    path: /tmp/serverdetails.txt
-  register: stat-file-serverdetails
-- name: Change the permissions of the file
-  become: true
-  file:
-    path: /tmp/serverdetails.txt
-    mode: 0777
-  when: stat-file-serverdetails.stat.exists
-
+    mode: 0644
